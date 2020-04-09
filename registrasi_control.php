@@ -4,7 +4,7 @@ session_start();
 
 include "config/koneksi.php";
 
-if($_POST['btn_registrasi']){
+if(isset($_POST['btn_registrasi'])){
   $nama = $_POST['nama'];
   $tmpt_lahir = date('Y-m-d', strtotime($_POST['tmpt_lahir']));
   $tgl_lahir = $_POST['tgl_lahir'];
@@ -53,5 +53,5 @@ if($_POST['btn_registrasi']){
   }
 
 }else{
-  echo "tidak ada";
+  header('Location: registrasi.php');
 }

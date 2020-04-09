@@ -46,22 +46,19 @@
                   <?php if(isset($_SESSION['pesan_regis'])) : ?>
                     <div class="alert alert-success"><?= $_SESSION['pesan_regis']; ?></div>
                   <?php endif; ?>
-                  <form class="user">
+
+                  <?php if(isset($_SESSION['login_error'])) : ?>
+                    <div class="alert alert-danger"><?= $_SESSION['login_error']; ?></div>
+                  <?php endif; ?>
+                  <?php session_destroy(); ?>
+                  <form class="user" action="login_control.php" method="POST">
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="Email">
+                      <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="username">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">
                     </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Ingat Saya</label>
-                      </div>
-                    </div>
-                    <a href="Dashboard.php" class="btn btn-primary btn-user btn-block">
-                      Daftar
-                    </a>
+                    <button type="submit" name="btn_login" class="btn btn-primary btn-user btn-block" value="login">Login</button>
                   </form>
                   <hr>
                   <div class="text-center small">
