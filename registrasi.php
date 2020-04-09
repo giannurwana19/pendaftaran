@@ -40,7 +40,7 @@
                   <div class="text-center">
                     <h1 class="h5 font-weight-bold text-gray-900 mb-4">Registrasi Siswa Baru</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" action="registrasi_control.php" method="POST">
                     <div class="form-group">
                       <label for="nama">Nama</label>
                       <input type="text" name="nama" class="form-control" id="nama" placeholder="nama anda">
@@ -48,7 +48,7 @@
                     <div class="form-group row">
                     <div class="col-md-6">
                       <label for="tempat_lahir">Tempat Lahir</label>
-                      <input type="text" name="Tempat_lahir" class="form-control" id="tempat_lahir" placeholder="tempat lahir">
+                      <input type="text" name="tmpt_lahir" class="form-control" id="tempat_lahir" placeholder="tempat lahir">
                     </div>
                     <div class="col-md-6">
                       <label for="tgl_lahir">Tanggal Lahir</label>
@@ -57,13 +57,13 @@
                     </div>
                     <div class="form-group row">
                     <div class="col-md-6">                    
-                      <label for="jk">Jenis Kelamin</label>
+                      <label for="jenis_kelamin">Jenis Kelamin</label>
                       <div class="form-check">
-                        <input type="radio" name="jk" class="form-check-input" id="laki" value="laki-laki" checked>
+                        <input type="radio" name="jenis_kelamin" class="form-check-input" id="laki" value="L" checked>
                         <label for="laki">Laki-Laki</label>
                       </div>
                       <div class="form-check">
-                        <input type="radio" name="jk" class="form-check-input" id="perempuan" value="perempuan">
+                        <input type="radio" name="jenis_kelamin" class="form-check-input" id="perempuan" value="P">
                         <label for="perempuan">perempuan</label>
                       </div>
                     </div>
@@ -89,8 +89,8 @@
                         <input type="email" name="email" id="email" class="form-control" placeholder="Email Aktif">
                       </div>
                       <div class="col-md-6">
-                        <label for="no.telp">No. Telp</label>
-                        <input type="text" name="no.telp" id="no.telp" class="form-control" placeholder="Nomor telepon">
+                        <label for="telepon">No. Telp</label>
+                        <input type="text" name="telepon" id="telepon" class="form-control" placeholder="Nomor telepon">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -103,9 +103,9 @@
                         <input type="password" name="password2" id="password2" class="form-control" placeholder="password">
                       </div>
                     </div>
-                    <a href="siswa/dashboard.php" class="btn btn-primary btn-user btn-block">
+                    <button value="simpan" name="btn_registrasi" class="btn btn-primary btn-user btn-block">
                       Daftar
-                    </a>
+                    </button>
                   </form>
                   <hr>
                   <div class="text-center small">

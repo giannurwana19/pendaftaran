@@ -42,6 +42,10 @@
                     <h1 class="h5 font-weight-bold text-gray-900 mb-4">SMA NEGERI 11 KAB. TANGERANG</h1>
                     <h1 class="h5 text-gray-900 mb-4">Login Admin</h1>
                   </div>
+                  <?php session_start(); ?>
+                  <?php if(isset($_SESSION['pesan_regis'])) : ?>
+                    <div class="alert alert-success"><?= $_SESSION['pesan_regis']; ?></div>
+                  <?php endif; ?>
                   <form class="user">
                     <div class="form-group">
                       <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="Email">
