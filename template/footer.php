@@ -34,8 +34,8 @@
       </div>
       <div class="modal-body">Anda akan keluar dari aplikasi ini</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-        <a class="btn btn-primary" href="../login.php">Logout</a>
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
+        <a class="btn btn-primary" href="<?= $base_url; ?>/logout_control.php">Logout</a>
       </div>
     </div>
   </div>

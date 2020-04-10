@@ -17,11 +17,16 @@ if(isset($_POST['btn_login'])){
       $_SESSION['nama'] = $data_user['nama'];
       $_SESSION['level'] = $data_user['level'];
       
-      header('Location: siswa/dashboard.php');
+      if($data_user['level'] == 'admin') {
+        header("Location: admin/dashboard.php");
+      }else{
+        header('Location: siswa/dashboard.php');
+      }
+
     }
   }else{
     // jika tidak, tampilkan pesan error
-    $_SESSION['login_error'] = "username atau password salah";
+    $_SESSION['login_error'] = "Username atau Password salah";
     header('Location: login.php');
   }
 

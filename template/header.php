@@ -39,44 +39,78 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        SISWA
+        <?= $_SESSION['level']; ?>
       </div>
+      <?php if ($_SESSION['level'] == 'siswa') { ?>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="nilai.php">
+            <i class="fas fa-th-list"></i>
+            <span>Nilai</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="editprofil.php">
+            <i class="fas fa-user-edit"></i>
+            <span>Edit Profile</span></a>
+        </li>
+
+      <?php } else { ?>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="detailpendaftar.php">
+            <i class="fas fa-th-list"></i>
+            <span>Detail Pendaftar</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="pendaftaran.php">
+            <i class="fas fa-user-edit"></i>
+            <span>Pendaftaran</span></a>
+        </li>
+
+      <?php } ?>
+
+
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="dashboard.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="nilai.php">
-          <i class="fas fa-th-list"></i>
-          <span>Nilai</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="editprofil.php">
-          <i class="fas fa-user-edit"></i>
-          <span>Edit Profile</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="logout.php">
+        <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal" >
           <i class="fas fa-sign-out-alt"></i>
           <span>Logout</span></a>
       </li>

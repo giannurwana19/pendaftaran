@@ -48,7 +48,7 @@
                   <?php endif; ?>
 
                   <?php if(isset($_SESSION['login_error'])) : ?>
-                    <div class="alert alert-danger"><?= $_SESSION['login_error']; ?></div>
+                    <div class="alert text-center alert-danger"><?= $_SESSION['login_error']; ?></div>
                   <?php endif; ?>
                   <?php session_destroy(); ?>
                   <form class="user" action="login_control.php" method="POST">
