@@ -14,6 +14,7 @@ if(isset($_POST['btn_login'])){
     // jika data ada, simpan data user ke dalam session
     while($data_user = mysqli_fetch_array($result)){
       $_SESSION['status'] = 'login';
+      $_SESSION['id_users'] = $data_user['id']; 
       $_SESSION['nama'] = $data_user['nama'];
       $_SESSION['level'] = $data_user['level'];
       
