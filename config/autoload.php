@@ -20,7 +20,7 @@ if(isset($_SESSION['status']) && $_SESSION['status'] == 'login'){
   }
 
 }else{
-  $_SESSION['login_error'] = "Silahka Login untuk masuk kedalam sistem";
+  $_SESSION['login_error'] = "Silahkan Login untuk masuk kedalam sistem";
   header("Location: " . $base_url . "/login.php");
 }
 
