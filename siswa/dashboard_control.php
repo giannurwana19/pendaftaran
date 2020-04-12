@@ -14,13 +14,13 @@ if(mysqli_num_rows($result_pendaftar)){
     $data_nilai = mysqli_fetch_assoc($result_nilai);
     $status = $data_nilai['status'];
 
-    echo "status" . $status;
-    die;
+    // echo "status" . $status;
+    // die;
 
   }else{
-    // jika belum ada data nilai, maka kosong
-    echo "error" . mysqli_error($koneksi);
-    die;
+    // jika belum ada data nilai / status, maka kosong
+    // echo "error" . mysqli_error($koneksi);
+    // die;
   }
 
   // echo $id_pendaftar;
@@ -36,6 +36,7 @@ if(mysqli_num_rows($result_pendaftar)){
 
     if($query_insert_nilai){
       // berhasil
+      header("Location: dashboard.php");
     }else{
       echo "error" . mysqli_error($koneksi);die;
     }

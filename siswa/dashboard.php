@@ -10,35 +10,126 @@
   <h1 class="h3 mb-4 text-gray-800">Menu Utama</h1>
 
   <div class="row">
-    <div class="col-md-6">
+
+    <?php if (!isset($status)) { ?>
+      <div class="col-md-6">
 
 
-      <!-- Illustrations -->
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Data Nilai</h6>
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Data Nilai</h6>
+          </div>
+          <div class="card-body">
+            <p class="text-danger">* Masukkan nilai untuk menyelesaikan proses pendaftaran!</p>
+            <form class="user" method="POST" action="<?= $base_url ?>/siswa/dashboard.php">
+              <div class="form-group">
+                <label for="nama">Masukkan Nilai Ujian Nasional</label>
+                <input type="number" name="nilai_un" class="form-control" id="nama" placeholder="Nilai">
+              </div>
+              <div class="form-group">
+                <label for="nama">Masukkan Nilai Ujian Sekolah</label>
+                <input type="number" name="nilai_us" class="form-control" id="nama" placeholder="Nilai">
+              </div>
+              <div class="text-right">
+                <button type="submit" name="btn_simpan" value="simpan_nilai" class="btn btn-primary">Simpan</button>
+                <a href="dashboard.php" class="btn btn-danger">Kembali</a>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="card-body">
-          <p class="text-danger">* Masukkan nilai untuk menyelesaikan proses pendaftaran!</p>
-          <form class="user" method="POST" action="<?= $base_url ?>/siswa/dashboard.php">
-            <div class="form-group">
-              <label for="nama">Masukkan Nilai Ujian Nasional</label>
-              <input type="number" name="nilai_un" class="form-control" id="nama" placeholder="Nilai">
+
+
+      </div>
+
+    <?php } else if (isset($status) && $status == 0) { ?>
+      <div class="col-md-6">
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Pengumuman Hasil Seleksi</h6>
+          </div>
+          <div class="card-body">
+            <div class="card">
+              <div class="text-center">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Proses Penilaian</h5>
+                  <div class="col-auto">
+                    <i class="fas fa-spinner text-warning mb-3" style="font-size: 90px;"></i>
+                  </div>
+                  <p class="card-text">Terima kasih telah melakukan pendaftaran di SMA NEGERI 11 KAB TANGERANG. Pengumuman pada tanggal : </p>
+                  <span class="badge badge-danger" style="font-size: 18px;">5 Oktober 2020</span>
+                </div>
+                <div class="card-footer">
+                  <marquee>SMA NEGERI 11 KABUPATEN TANGERANG</marquee>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="nama">Masukkan Nilai Ujian Sekolah</label>
-              <input type="number" name="nilai_us" class="form-control" id="nama" placeholder="Nilai">
-            </div>
-            <div class="text-right">
-              <button type="submit" name="btn_simpan" value="simpan_nilai" class="btn btn-primary">Simpan</button>
-              <a href="dashboard.php" class="btn btn-danger">Kembali</a>
-            </div>
-          </form>
+          </div>
         </div>
+
+
+      </div>
+    <?php } else if (isset($status) && $status == 1) { ?>
+      <div class="col-md-6">
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Pengumuman Hasil Seleksi</h6>
+          </div>
+          <div class="card-body">
+            <div class="card">
+              <div class="text-center">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Anda Lolos</h5>
+                  <div class="col-auto">
+                    <i class="fas fa-check-circle text-success mb-3" style="font-size: 90px;"></i>
+                  </div>
+                  <p class="card-text">Selamat! Anda lolos seleksi di SMA NEGERI 11 KABUPATEN TANGERANG. Lakukan daftar ulang pada tanggal : </p>
+                  <span class="badge badge-danger" style="font-size: 18px;">20 Oktober 2020</span>
+                </div>
+                <div class="card-footer">
+                  <marquee>SMA NEGERI 11 KABUPATEN TANGERANG</marquee>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
 
 
-    </div>
+    <?php } else if (isset($status) && $status == 2) { ?>
+      <div class="col-md-6">
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Pengumuman Hasil Seleksi</h6>
+          </div>
+          <div class="card-body">
+            <div class="card">
+              <div class="text-center">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">ANDA TIDAK LOLOS</h5>
+                  <div class="col-auto">
+                    <i class="fas fa-times text-danger mb-3" style="font-size: 90px;"></i>
+                  </div>
+                  <p class="card-text">Anda belum lolos. Terima kasih telah mengikuti seleksi dengan baik</p>
+                </div>
+                <div class="card-footer">
+                  <marquee>SMA NEGERI 11 KABUPATEN TANGERANG</marquee>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    <?php } ?>
+
     <div class="col-md-6">
 
 
@@ -90,88 +181,11 @@
 
     <!-- hasil penilaian -->
 
-    <div class="col-md-6">
-
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Pengumuman Hasil Seleksi</h6>
-        </div>
-        <div class="card-body">
-          <div class="card">
-            <div class="text-center">
-              <div class="card-body">
-                <h5 class="card-title mb-3">Proses Penilaian</h5>
-                <div class="col-auto">
-                  <i class="fas fa-spinner text-warning mb-3" style="font-size: 90px;"></i>
-                </div>
-                <p class="card-text">Terima kasih telah melakukan pendaftaran di SMA NEGERI 11 KAB TANGERANG. Pengumuman pada tanggal : </p>
-                <span class="badge badge-danger" style="font-size: 18px;">5 Oktober 2020</span>
-              </div>
-              <div class="card-footer">
-                <marquee>SMA NEGERI 11 KABUPATEN TANGERANG</marquee>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
-    </div>
-
-    <div class="col-md-6">
-
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Pengumuman Hasil Seleksi</h6>
-        </div>
-        <div class="card-body">
-          <div class="card">
-            <div class="text-center">
-              <div class="card-body">
-                <h5 class="card-title mb-3">Anda Lolos</h5>
-                <div class="col-auto">
-                  <i class="fas fa-check-circle text-success mb-3" style="font-size: 90px;"></i>
-                </div>
-                <p class="card-text">Selamat! Anda lolos seleksi di SMA NEGERI 11 KABUPATEN TANGERANG. Lakukan daftar ulang pada tanggal : </p>
-                <span class="badge badge-danger" style="font-size: 18px;">20 Oktober 2020</span>
-              </div>
-              <div class="card-footer">
-                <marquee>SMA NEGERI 11 KABUPATEN TANGERANG</marquee>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
-    </div>
 
-    <div class="col-md-6">
-
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Pengumuman Hasil Seleksi</h6>
-        </div>
-        <div class="card-body">
-          <div class="card">
-            <div class="text-center">
-              <div class="card-body">
-                <h5 class="card-title mb-3">ANDA TIDAK LOLOS</h5>
-                <div class="col-auto">
-                  <i class="fas fa-times text-danger mb-3" style="font-size: 90px;"></i>
-                </div>
-                <p class="card-text">Anda belum lolos. Terima kasih telah mengikuti seleksi dengan baik</p>
-              </div>
-              <div class="card-footer">
-                <marquee>SMA NEGERI 11 KABUPATEN TANGERANG</marquee>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
 
     <div class="col-md-6">
 
