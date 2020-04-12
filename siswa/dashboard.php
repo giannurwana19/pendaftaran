@@ -24,12 +24,12 @@
             <p class="text-danger">* Masukkan nilai untuk menyelesaikan proses pendaftaran!</p>
             <form class="user" method="POST" action="<?= $base_url ?>/siswa/dashboard.php">
               <div class="form-group">
-                <label for="nama">Masukkan Nilai Ujian Nasional</label>
-                <input type="number" name="nilai_un" class="form-control" id="nama" placeholder="Nilai">
+                <label for="un">Masukkan Nilai Ujian Nasional</label>
+                <input type="number" name="nilai_un" class="form-control" id="un" placeholder="Nilai">
               </div>
               <div class="form-group">
-                <label for="nama">Masukkan Nilai Ujian Sekolah</label>
-                <input type="number" name="nilai_us" class="form-control" id="nama" placeholder="Nilai">
+                <label for="us">Masukkan Nilai Ujian Sekolah</label>
+                <input type="number" name="nilai_us" class="form-control" id="us" placeholder="Nilai">
               </div>
               <div class="text-right">
                 <button type="submit" name="btn_simpan" value="simpan_nilai" class="btn btn-primary">Simpan</button>
