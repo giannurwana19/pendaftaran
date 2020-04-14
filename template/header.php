@@ -110,7 +110,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal" >
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-sign-out-alt"></i>
           <span>Logout</span></a>
       </li>
@@ -149,7 +149,14 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama']; ?></span>
-                <img class="img-profile rounded-circle" src="../assets/img/profil1.jpg">
+                <?php
+                if ($data_pendaftar['foto'] == null) {
+                  $foto = '../assets/img/1.png';
+                } else {
+                  $foto = '../upload/' . $data_pendaftar['foto'];
+                }
+                ?>
+                <img class="img-profile rounded-circle" src="<?= $foto; ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

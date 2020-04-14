@@ -43,12 +43,17 @@
                     <h1 class="h5 text-gray-900 mb-4">Login</h1>
                   </div>
                   <?php session_start(); ?>
-                  <?php if(isset($_SESSION['pesan_regis'])) : ?>
+                  <?php if (isset($_SESSION['pesan_regis'])) : ?>
                     <div class="alert alert-success"><?= $_SESSION['pesan_regis']; ?></div>
                   <?php endif; ?>
 
-                  <?php if(isset($_SESSION['login_error'])) : ?>
-                    <div class="alert text-center alert-danger"><?= $_SESSION['login_error']; ?></div>
+                  <?php if (isset($_SESSION['login_error'])) : ?>
+                    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                      <?= $_SESSION['login_error']; ?>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
                   <?php endif; ?>
                   <?php session_destroy(); ?>
                   <form class="user" action="login_control.php" method="POST">
@@ -77,8 +82,8 @@
   </div>
 
 
-<?php 
+  <?php
 
-require "footer.php";
+  require "footer.php";
 
-?>
+  ?>

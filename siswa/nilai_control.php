@@ -38,7 +38,8 @@ if(mysqli_num_rows($result_pendaftar)){
 
       if ($query_update) {
         // berhasil
-        header("Location: nilai.php");
+        $_SESSION['pesan_sukses'] = "Edit nilai sukses";
+        header("Location: dashboard.php");
       } else {
         echo "error" . mysqli_error($koneksi);
         die;

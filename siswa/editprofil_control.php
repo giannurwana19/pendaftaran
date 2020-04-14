@@ -70,6 +70,7 @@ if(mysqli_num_rows($result_pendaftar)){
     $query_update_profile = mysqli_query($koneksi, $sql_update_profil);
 
     if($query_update_profile){
+      $_SESSION['pesan_sukses'] = "Edit profile sukses";
       header("Location: dashboard.php");
     }else{
       echo "gagal update data";
