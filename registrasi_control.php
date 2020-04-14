@@ -6,8 +6,8 @@ include "config/koneksi.php";
 
 if(isset($_POST['btn_registrasi'])){
   $nama = $_POST['nama'];
-  $tmpt_lahir = date('Y-m-d', strtotime($_POST['tmpt_lahir']));
-  $tgl_lahir = $_POST['tgl_lahir'];
+  $tmpt_lahir = $_POST['tmpt_lahir'];
+  $tgl_lahir = date('Y-m-d', strtotime($_POST['tgl_lahir']));
   $jenis_kelamin = $_POST['jenis_kelamin'];
   $agama = $_POST['agama'];
   $alamat = $_POST['alamat'];

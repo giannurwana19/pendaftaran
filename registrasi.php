@@ -70,12 +70,12 @@
                       <div class="col-md-6">
                         <label for="agama">Agama</label>
                         <select name="agama" id="agama" class="form-control">
-                          <option value="islam" selected>Islam</option>
-                          <option value="kristen">Kristen</option>
-                          <option value="katholik">Katholik</option>
-                          <option value="hindu">Hindu</option>
-                          <option value="buddha">Buddha</option>
-                          <option value="konghucu">Konghucu</option>
+                          <option value="Islam" selected>Islam</option>
+                          <option value="Kristen">Kristen</option>
+                          <option value="Katholik">Katholik</option>
+                          <option value="Hindu">Hindu</option>
+                          <option value="Buddha">Buddha</option>
+                          <option value="Konghucu">Konghucu</option>
                         </select>
                       </div>
                     </div>

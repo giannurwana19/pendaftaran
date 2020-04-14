@@ -139,38 +139,66 @@
           <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
         </div>
         <div class="card-body">
-          <div class="text-center">
-            <img src="../assets/img/profil1.jpg" class="img-fluid rounded-circle" style="width: 200px" alt="salah">
+          <div class="col-auto mt-3 text-center">
+            <?php
+            if ($data_pendaftar['foto'] == null) {
+              $foto = '../assets/img/1.png';
+            } else {
+              $foto = '../upload/' . $data_pendaftar['foto'];
+            }
+            ?>
+            <img src="<?= $foto; ?>" class="img-fluid rounded-circle" style="width: 200px" alt="salah">
           </div>
           <div class="text-right">
             <a href="editprofil.php" class="btn btn-warning btn-sm">Edit Profile</a>
           </div>
-          <h5 class="text-center card-title mt-3">Gian Nurwana</h5>
+          <h5 class="text-center card-title mt-3"><?= $data_pendaftar['nama']; ?></h5>
 
           <ul class="list-group">
             <li class="list-group-item">
-              <h6 class="mb-0 text-dark font-weight-bold">Tempat, Tanggal Lahir</h6>
-              <small>Tangerang, 09 Mei 2000</small>
+              <h6 class="mb-0 text-dark font-weight-bold">Tempat, Tanggal lahir</h6>
+              <small><?= $data_pendaftar['tmpt_lahir']; ?>, <?= date('d-m-Y', strtotime($data_pendaftar['tgl_lahir'])); ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Jenis Kelamin</h6>
-              <small>Laki-laki</small>
+              <?php if($data_pendaftar['jenis_kelamin'] == 'L'){
+                $kelamin = "Laki - laki";
+              }else{
+                $kelamin = "Perempuan";
+              }
+              ?>
+              <small><?= $kelamin; ?></small>
             </li>
+            <?php 
+              if($data_pendaftar['agama'] == 'Islam' ){
+                $data_pendaftar['agama'] = 'Islam';
+              }elseif ($data_pendaftar['agama'] == 'Kristen') {
+                $data_pendaftar['agama'] = 'Kristen';
+              }else if($data_pendaftar['agama'] == 'Katholik'){
+                $data_pendaftar['agama'] = 'Katholik';
+              }elseif ($data_pendaftar['agama'] == 'Hindu') {
+                $data_pendaftar['agama'] = 'Hindu';
+              }elseif ($data_pendaftar['agama'] == 'Buddha') {
+              $data_pendaftar['agama'] = 'Buddha';
+              }else{
+                $data_pendaftar['agama'] = 'Konghucu';
+              }
+            ?>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Agama</h6>
-              <small>Islam</small>
+              <small><?= $data_pendaftar['agama']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Alamat</h6>
-              <small>Kp. Pisangan RT 02/01 Desa Sarakan Kec. Sepatan Kab. Tangerang</small>
+              <small><?= $data_pendaftar['alamat']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Email</h6>
-              <small>giannurwana19@gmail.com</small>
+              <small><?= $data_pendaftar['email']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Telepon</h6>
-              <small>089662043519</small>
+              <small><?= $data_pendaftar['telepon']; ?></small>
             </li>
           </ul>
         </div>

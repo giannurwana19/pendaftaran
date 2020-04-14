@@ -40,7 +40,7 @@
                   <div class="text-center">
                     <img src="assets/img/logo.png" class="mb-3" width="100" alt="">
                     <h1 class="h5 font-weight-bold text-gray-900 mb-4">SMA NEGERI 11 KAB. TANGERANG</h1>
-                    <h1 class="h5 text-gray-900 mb-4">Login Admin</h1>
+                    <h1 class="h5 text-gray-900 mb-4">Login</h1>
                   </div>
                   <?php session_start(); ?>
                   <?php if(isset($_SESSION['pesan_regis'])) : ?>

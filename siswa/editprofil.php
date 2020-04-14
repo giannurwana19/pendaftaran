@@ -1,5 +1,6 @@
 <?php include "../config/autoload.php"; ?>
-<?php include "../template/header.php" ?>
+<?php include "editprofil_control.php"; ?>
+<?php include "../template/header.php"; ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -9,60 +10,82 @@
 
   <div class="row">
     <div class="col-md-8">
-      <form class="user">
+      <form class="user" method="POST" action="<?= $base_url; ?>/siswa/editprofile.php">
         <div class="form-group">
           <label for="nama">Nama</label>
-          <input type="text" name="nama" class="form-control" id="nama" placeholder="nama anda">
+          <input type="text" name="nama" class="form-control" id="nama" value="<?= $data_pendaftar['nama']; ?>" placeholder="nama anda">
         </div>
         <div class="form-group row">
           <div class="col-md-6">
-            <label for="tempat_lahir">Tempat Lahir</label>
-            <input type="text" name="Tempat_lahir" class="form-control" id="tempat_lahir" placeholder="tempat lahir">
+            <label for="tmpt_lahir">Tempat Lahir</label>
+            <input type="text" name="tmpt_lahir" class="form-control" id="tmpt_lahir" value="<?= $data_pendaftar['tmpt_lahir']; ?>" placeholder="tempat lahir">
           </div>
           <div class="col-md-6">
             <label for="tgl_lahir">Tanggal Lahir</label>
-            <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" placeholder="tanggal lahir">
+            <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" value="<?= $data_pendaftar['tgl_lahir']; ?>" placeholder="tanggal lahir">
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-6">
             <label for="jk">Jenis Kelamin</label>
+            <?php
+            $laki = '';
+            $perempuan = '';
+            if ($data_pendaftar['jenis_kelamin'] == "L") {
+              $laki = "checked";
+            } else {
+              $perempuan = "checked";
+            }
+
+            ?>
             <div class="form-check">
-              <input type="radio" name="jk" class="form-check-input" id="laki" value="laki-laki" checked>
+              <input type="radio" name="jk" class="form-check-input" id="laki" value="laki-laki" <?= $laki; ?>>
               <label for="laki">Laki-Laki</label>
             </div>
             <div class="form-check">
-              <input type="radio" name="jk" class="form-check-input" id="perempuan" value="perempuan">
+              <input type="radio" name="jk" class="form-check-input" id="perempuan" value="perempuan" <?= $perempuan; ?>>
               <label for="perempuan">perempuan</label>
             </div>
           </div>
           <div class="col-md-6">
             <label for="agama">Agama</label>
             <select name="agama" id="agama" class="form-control">
-              <option value="islam" selected>Islam</option>
-              <option value="kristen">Kristen</option>
-              <option value="katholik">Katholik</option>
-              <option value="hindu">Hindu</option>
-              <option value="buddha">Buddha</option>
-              <option value="konghucu">Konghucu</option>
+              <option value="islam" <?php if ($data_pendaftar['agama'] == 'islam') {
+                                      echo "selected";
+                                    }  ?>>Islam</option>
+              <option value="kristen" <?php if ($data_pendaftar['agama'] == 'kristen') {
+                                        echo "selected";
+                                      }  ?>>Kristen</option>
+              <option value="katholik" <?php if ($data_pendaftar['agama'] == 'katholik') {
+                                          echo "selected";
+                                        }  ?>>Katholik</option>
+              <option value="hindu" <?php if ($data_pendaftar['agama'] == 'hindu') {
+                                      echo "selected";
+                                    }  ?>>Hindu</option>
+              <option value="buddha" <?php if ($data_pendaftar['agama'] == 'buddha') {
+                                        echo "selected";
+                                      }  ?>>Buddha</option>
+              <option value="konghucu" <?php if ($data_pendaftar['agama'] == 'konghucu') {
+                                          echo "selected";
+                                        }  ?>>Konghucu</option>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label for="alamat">Alamat</label>
-          <textarea name="alamat" class="form-control" id="alamat" cols="30" rows="3"></textarea>
+          <textarea name="alamat" class="form-control" id="alamat" cols="30" rows="3"><?= $data_pendaftar['alamat'] ?></textarea>
         </div>
         <div class="form-group row">
           <div class="col-md-6">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email Aktif">
+            <input type="email" name="email" id="email" class="form-control" value="<?= $data_pendaftar['email'] ?>" placeholder="Email Aktif">
           </div>
           <div class="col-md-6">
-            <label for="no.telp">No. Telp</label>
-            <input type="text" name="no.telp" id="no.telp" class="form-control" placeholder="Nomor telepon">
+            <label for="telepon">No. Telp</label>
+            <input type="text" name="telepon" id="telepon" class="form-control" value="<?= $data_pendaftar['telepon'] ?>" placeholder="Nomor telepon">
           </div>
         </div>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
           <div class="col-md-6">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password">
@@ -71,13 +94,20 @@
             <label for="password2">Ulangi Password</label>
             <input type="password" name="password2" id="password2" class="form-control" placeholder="password">
           </div>
-        </div>
-        <button type="submit" class="btn btn-primary mb-5" name="simpan">Ubah</button>
+        </div> -->
+        <button type="submit" class="btn btn-primary mb-5" name="btn_simpan" value="simpan_profil">Ubah</button>
         <a href="dashboard.php" class="btn btn-danger mb-5">kembali</a>
       </form>
     </div>
     <div class="col-md-4">
-      <img src="../assets/img/profil1.jpg" alt="foto profil" class="img-fluid">
+      <?php
+      if ($data_pendaftar['foto'] == null) {
+        $foto = '../assets/img/1.png';
+      } else {
+        $foto = '../upload/' . $data_pendaftar['foto'];
+      }
+      ?>
+      <img src="<?= $foto; ?>" alt="foto profil" class="img-fluid">
       <input type="file" name="gambar" class="form-control mt-2">
     </div>
   </div>
