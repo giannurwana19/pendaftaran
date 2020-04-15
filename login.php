@@ -40,7 +40,7 @@
                   <div class="text-center">
                     <img src="assets/img/logo.png" class="mb-3" width="100" alt="">
                     <h1 class="h5 font-weight-bold text-gray-900 mb-4">SMA NEGERI 11 KAB. TANGERANG</h1>
-                    <h1 class="h5 text-gray-900 mb-4">Login</h1>
+                    <h1 class="h5 text-gray-900 mb-4">PPDB Online</h1>
                   </div>
                   <?php session_start(); ?>
                   <?php if (isset($_SESSION['pesan_regis'])) : ?>
@@ -58,7 +58,7 @@
                   <?php session_destroy(); ?>
                   <form class="user" action="login_control.php" method="POST">
                     <div class="form-group">
-                      <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="username">
+                      <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="username" autofocus>
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">

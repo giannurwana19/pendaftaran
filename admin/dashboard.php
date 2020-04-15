@@ -1,4 +1,5 @@
 <?php include "../config/autoload.php"; ?>
+<?php include "dashboard_control.php"; ?>
 <?php include "../template/header.php"; ?>
 
 <!-- Begin Page Content -->
@@ -14,7 +15,9 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="h4 font-weight-bold text-info text-uppercase mb-1">Pendaftar Masuk</div>
-              <div class="h5 mt-2 font-weight-bold">22 Orang</div>
+              <div class="h5 mt-2 font-weight-bold">
+                <?= mysqli_num_rows($jml_pendaftar); ?>  Orang
+              </div>
               <div class="row no-gutters align-items-center">
                 <div class="col">
                   <div class="progress progress-sm mr-2">
@@ -36,7 +39,9 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="h4 font-weight-bold text-success text-uppercase mb-1">Lolos Seleksi</div>
-              <div class="h5 mt-2 font-weight-bold">10 Orang</div>
+              <div class="h5 mt-2 font-weight-bold">
+                <?= mysqli_num_rows($jml_lolos); ?> Orang
+              </div>
               <div class="row no-gutters align-items-center">
                 <div class="col">
                   <div class="progress progress-sm mr-2">
@@ -54,39 +59,39 @@
     </div>
   </div>
   <hr class="mt-3">
-  <h2 class="text-gray-800">Data Pendaftar</h2>
+  <h4 class="text-gray-800">Data Pendaftar Baru</h4>
   <div class="row">
     <div class="col-md-12">
       <table class="table table-bordered table-hover">
-        <thead class="bg-info text-white">
+        <thead class="bg-info text-white text-center">
           <th>No.</th>
           <th>Nama</th>
           <th>Alamat</th>
-          <th>Nilai</th>
+          <th>Nilai UN</th>
+          <th>Nilai US</th>
+          <th>Rata-Rata</th>
           <th>Status</th>
         </thead>
         <tbody>
+        <?php 
+          $no = 1;
+          while($p = mysqli_fetch_assoc($all_pendaftar)): ?>
           <tr>
-            <td>1</td>
-            <td>Gian Nurwana</td>
-            <td>Kp. Pisangan RT 02/01</td>
-            <td>90</td>
+            <td><?= $no; ?></td>
+            <td><?= $p['nama']; ?></td>
+            <td><?= $p['alamat']; ?></td>
+            <td><?= $p['nilai_un']; ?></td>
+            <td><?= $p['nilai_us']; ?></td>
+            <td><?= ($p['nilai_un'] + $p['nilai_us'])/2; ?></td>
             <td class="text-center"><span class="badge badge-info">BARU</span></td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>M. Hendri</td>
-            <td>Kp. Pisangan RT 02/01</td>
-            <td>90</td>
-            <td class="text-center"><span class="badge badge-info">BARU</span></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Wawan Kurniawan</td>
-            <td>Kp. Pisangan RT 02/01</td>
-            <td>85</td>
-            <td class="text-center"><span class="badge badge-info">BARU</span></td>
-          </tr>
+          <?php endwhile; ?>
+          <?php if(mysqli_num_rows($all_pendaftar) == 0){ ?>
+              <tr class="text-center font-weight-bold">
+                <td colspan="7">Belum ada data pendaftar baru</td>
+              </tr>
+          <?php } ?>
+          
         </tbody>
       </table>
     </div>
