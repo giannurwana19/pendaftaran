@@ -22,4 +22,19 @@ if (!$result_pendaftar) {
     die("QUERY ERROR " . mysqli_error($koneksi));
   }
 
+
+  // ubah status
+  if(isset($_POST['simpan']) && $_POST['simpan'] == 'simpan_nilai'){
+    $nilai = $_POST['nilai'];
+    $sql_nilai_ujian = "UPDATE nilai set status = $nilai WHERE pendaftar_id = $id_pendaftar";
+    $query_nilai_ujian = mysqli_query($koneksi, $sql_nilai_ujian);
+
+    if($query_nilai_ujian){
+      $_SESSION['pesan_sukses'] = 'Status pendaftar berhasil diubah';
+      header("Location: pendaftaran.php");
+    }else{
+      echo "gagal update status pendaftar";die;
+    }
+  } 
+
 ?>

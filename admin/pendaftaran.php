@@ -8,6 +8,17 @@
   <h1 class="h3 mb-4 text-gray-800">Data Pendaftar</h1>
 
   <div class="row">
+    <div class="col-12">
+      <?php if (isset($_SESSION['pesan_sukses'])) { ?>
+        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+          <?= $_SESSION['pesan_sukses']; ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php } ?>
+      <?php unset($_SESSION['pesan_sukses']); ?>
+    </div>
     <div class="col-md-12">
       <table class="table table-bordered table-hover">
         <thead class="bg-info text-white text-center">
@@ -31,14 +42,14 @@
               <td><?= $p['nilai_un']; ?></td>
               <td><?= $p['nilai_us']; ?></td>
               <td><?= number_format(($p['nilai_un'] + $p['nilai_us']) / 2, 2) ?></td>
-              <?php 
-                if($p['status'] == 0){ ?>
-                  <td class="text-center"><span class="badge badge-info">BARU</span></td>
-                <?php }elseif($p['status'] == 1){ ?>  
-                  <td class="text-center"><span class="badge badge-success">LOLOS</span></td>
-                <?php }else{ ?>    
-                    <td class="text-center"><span class="badge badge-danger">TIDAK LOLOS</span></td>
-                <?php } ?>
+              <?php
+              if ($p['status'] == 0) { ?>
+                <td class="text-center"><span class="badge badge-info">BARU</span></td>
+              <?php } elseif ($p['status'] == 1) { ?>
+                <td class="text-center"><span class="badge badge-success">LOLOS</span></td>
+              <?php } else { ?>
+                <td class="text-center"><span class="badge badge-danger">TIDAK LOLOS</span></td>
+              <?php } ?>
               <td class="text-center">
                 <a href="detailpendaftar.php?id=<?= $p['id']; ?>" class="btn btn-success btn-sm">Cek</a>
               </td>

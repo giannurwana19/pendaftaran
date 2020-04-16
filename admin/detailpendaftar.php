@@ -75,9 +75,19 @@
           <h6 class="m-0 font-weight-bold text-primary">Data Nilai Pendaftar</h6>
         </div>
         <div class="card-body">
-          <div class="alert alert-info">
-            Data pendaftar belum divalidasi
-          </div>
+          <?php if ($data_nilai['status'] == 0) { ?>
+            <div class="alert alert-warning">
+              Data pendaftar <b>belum divalidasi</b>
+            </div>
+          <?php } elseif ($data_nilai['status'] == 1) { ?>
+            <div class="alert alert-info">
+              Data pendaftar dinyatakan <b>Lolos</b>
+            </div>
+          <?php } else { ?>
+            <div class="alert alert-danger">
+              Data pendaftar dinyatakan <b>Tidak Lolos</b>
+            </div>
+          <?php } ?>
 
           <ul class="list-group">
             <li class="list-group-item">
@@ -90,7 +100,7 @@
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Nilai Rata-rata</h6>
-              <small class="text-muted"><?= number_format(($data_nilai['nilai_un'] + $data_nilai['nilai_us']) / 2,2); ?></small>
+              <small class="text-muted"><?= number_format(($data_nilai['nilai_un'] + $data_nilai['nilai_us']) / 2, 2); ?></small>
             </li>
           </ul>
 
@@ -102,25 +112,33 @@
           <div class="modal fade" id="modalvalidasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Penilaian Data Pendaftar</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body text-center">
-                  <a href="" class="btn btn-success mr-3">LOLOS</a>
-                  <a href="" class="btn btn-danger">TIDAK LOLOS</a>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                </div>
+                <form action="<?= $base_url; ?>/admin/detailpendaftar.php?id=<?= $id_pendaftar ?>" method="POST">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Penilaian Data Pendaftar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <label for="nilai">Beri Nilai</label>
+                    <select class="form-control" name="nilai" id="nilai">
+                      <option value="">---Pilih---</option>
+                      <option value="1">Lolos</option>
+                      <option value="2">Tidak Lolos</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button name="simpan" value="simpan_nilai" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
 
         </div>
       </div>
+      <a href="pendaftaran.php" class="btn btn-sm btn-danger">Kembali</a>
 
     </div>
 
