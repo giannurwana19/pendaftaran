@@ -1,4 +1,5 @@
 <?php include "../config/autoload.php"; ?>
+<?php include "detailpendaftar_control.php"; ?>
 <?php include "../template/header.php"; ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -17,34 +18,48 @@
         </div>
         <div class="card-body">
           <div class="text-center">
-            <img src="../assets/img/profil1.jpg" class="img-fluid rounded-circle" style="width: 200px" alt="salah">
+            <?php
+            if ($data_pendaftar['foto'] == null) {
+              $foto = '../assets/img/1.png';
+            } else {
+              $foto = '../upload/' . $data_pendaftar['foto'];
+            }
+            ?>
+            <img src="<?= $foto; ?>" class="img-fluid rounded-circle" style="width: 200px;" alt="salah">
           </div>
-          <h5 class="text-center card-title mt-3">Gian Nurwana</h5>
+          <h5 class="text-center card-title mt-3"><?= $data_pendaftar['nama']; ?></h5>
 
           <ul class="list-group">
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Tempat, Tanggal Lahir</h6>
-              <small>Tangerang, 09 Mei 2000</small>
+              <small><?= $data_pendaftar['tmpt_lahir']; ?>, <?= date('d-m-Y', strtotime($data_pendaftar['tgl_lahir'])); ?></small>
             </li>
             <li class="list-group-item">
+              <?php
+              if ($data_pendaftar['jenis_kelamin'] == "L") {
+                $jenis_kelamin = "Laki-laki";
+              } else {
+                $jenis_kelamin = "Perempuan";
+              }
+              ?>
               <h6 class="mb-0 text-dark font-weight-bold">Jenis Kelamin</h6>
-              <small>Laki-laki</small>
+              <small><?= $jenis_kelamin; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Agama</h6>
-              <small>Islam</small>
+              <small><?= $data_pendaftar['agama']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Alamat</h6>
-              <small>Kp. Pisangan RT 02/01 Desa Sarakan Kec. Sepatan Kab. Tangerang</small>
+              <small><?= $data_pendaftar['alamat']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Email</h6>
-              <small>giannurwana19@gmail.com</small>
+              <small><?= $data_pendaftar['email']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Telepon</h6>
-              <small>089662043519</small>
+              <small><?= $data_pendaftar['telepon']; ?></small>
             </li>
           </ul>
         </div>
@@ -67,15 +82,15 @@
           <ul class="list-group">
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Nilai Ujian Nasional</h6>
-              <small class="text-muted">90</small>
+              <small class="text-muted"><?= $data_nilai['nilai_un']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Nilai Ujian Sekolah</h6>
-              <small class="text-muted">90</small>
+              <small class="text-muted"><?= $data_nilai['nilai_us']; ?></small>
             </li>
             <li class="list-group-item">
               <h6 class="mb-0 text-dark font-weight-bold">Nilai Rata-rata</h6>
-              <small class="text-muted">90</small>
+              <small class="text-muted"><?= number_format(($data_nilai['nilai_un'] + $data_nilai['nilai_us']) / 2,2); ?></small>
             </li>
           </ul>
 

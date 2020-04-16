@@ -86,19 +86,21 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-          <a class="nav-link" href="detailpendaftar.php">
-            <i class="fas fa-th-list"></i>
-            <span>Detail Pendaftar</span></a>
-        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
+        
         <li class="nav-item">
           <a class="nav-link" href="pendaftaran.php">
             <i class="fas fa-user-edit"></i>
             <span>Pendaftaran</span></a>
+        </li>
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="laporan.php">
+            <i class="fas fa-th-list"></i>
+            <span>Laporan</span></a>
         </li>
 
       <?php } ?>
@@ -150,7 +152,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama']; ?></span>
                 <?php
-                if ($data_pendaftar['foto'] == null) {
+                if ($data_pendaftar['foto'] == "") {
                   $foto = '../assets/img/1.png';
                 } else {
                   $foto = '../upload/' . $data_pendaftar['foto'];
