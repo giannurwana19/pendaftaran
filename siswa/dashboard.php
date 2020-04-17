@@ -197,7 +197,7 @@
                   $foto = '../upload/' . $data_pendaftar['foto'];
                 }
                 ?>
-                <img src="<?= $foto; ?>" class="img-fluid rounded-circle" style="width: 200px;" alt="salah">
+                <img src="<?= $foto; ?>" class="img-fluid rounded-circle" width="200" alt="salah">
               </div>
               <div class="text-right">
                 <a href="editprofil.php" class="btn btn-warning btn-sm">Edit Profile</a>

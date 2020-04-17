@@ -105,6 +105,7 @@
         ?>
         <img src="<?= $foto; ?>" alt="foto profil" class="img-fluid">
         <input type="file" name="foto" class="form-control mt-2">
+        <small>Input foto berukuran maksimal 1 MB</small>
       </div>
       <div class="col-md-12">
         <button type="submit" class="btn btn-success mb-5" name="btn_simpan" value="simpan_profil">Ubah</button>

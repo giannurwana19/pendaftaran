@@ -54,9 +54,33 @@
                 <a href="detailpendaftar.php?id=<?= $p['id']; ?>" class="btn btn-success btn-sm">Cek</a>
               </td>
               <td class="text-center">
-                <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalHapus_<?= $p['id']; ?>">Hapus</a>
               </td>
             </tr>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalHapus_<?= $p['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin ?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Anda akan menghapus data pendaftar dengan nama <?= $p['nama']; ?>! <br>
+                      <b>DATA AKAN DIHAPUS SECARA PERMANEN</b></p>
+                  </div>
+                    <div class="modal-footer">
+                      <a href="<?= $base_url ?>/admin/pendaftaran.php?action=hapus&id=<?= $p['id']; ?>" class="btn btn-sm btn-danger">Hapus</a>
+                      <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
           <?php endwhile; ?>
           <?php if (mysqli_num_rows($all_pendaftar) == 0) { ?>
             <tr class="text-center font-weight-bold">

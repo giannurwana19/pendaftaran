@@ -29,7 +29,7 @@ if(mysqli_num_rows($result_pendaftar)){
       $ukuran = $_FILES['foto']['size'];
       $file_tmp = $_FILES['foto']['tmp_name'];
       
-      $ubah_nama = $nama .  uniqid() . "." . $ekstensi;
+      $ubah_nama = $nama . '_' . uniqid() . "." . $ekstensi;
 
       // echo $ubah_nama;
       // die;
