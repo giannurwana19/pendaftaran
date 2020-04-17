@@ -26,10 +26,10 @@ if (!$result_pendaftar) {
   // ubah status
   if(isset($_POST['simpan']) && $_POST['simpan'] == 'simpan_nilai'){
     $nilai = $_POST['nilai'];
-    $sql_nilai_ujian = "UPDATE nilai set status = $nilai WHERE pendaftar_id = $id_pendaftar";
-    $query_nilai_ujian = mysqli_query($koneksi, $sql_nilai_ujian);
+    $sql_nilai = "UPDATE nilai set status = $nilai WHERE pendaftar_id = $id_pendaftar";
+    $query_nilai = mysqli_query($koneksi, $sql_nilai);
 
-    if($query_nilai_ujian){
+    if($query_nilai){
       $_SESSION['pesan_sukses'] = 'Status pendaftar berhasil diubah';
       header("Location: pendaftaran.php");
     }else{
