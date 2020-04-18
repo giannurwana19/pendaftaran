@@ -80,7 +80,7 @@
                 </div>
               </div>
             </div>
-
+            <?php $no++; ?>
           <?php endwhile; ?>
           <?php if (mysqli_num_rows($all_pendaftar) == 0) { ?>
             <tr class="text-center font-weight-bold">
