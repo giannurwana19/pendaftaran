@@ -7,7 +7,7 @@
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">Laporan Pendaftaran</h1>
 
-  <a href="<?= $base_url ?>/cetak/data_pendaftar.php" class="btn btn-warning btn-sm mb-3">Cetak Data Pendaftar</a>
+  <a href="<?= $base_url ?>/cetak/data_pendaftar.php" target="_blank" class="btn btn-warning btn-sm mb-3">Cetak Data Pendaftar</a>
 
   <div class="row">
 
