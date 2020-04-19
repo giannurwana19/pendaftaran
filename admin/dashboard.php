@@ -1,6 +1,6 @@
 <?php include "../config/autoload.php"; ?>
 <?php include "dashboard_control.php"; ?>
-<?php include "../template/header.php"; ?>
+<?php include "../template/header_admin.php"; ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">

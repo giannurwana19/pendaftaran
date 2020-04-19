@@ -1,6 +1,6 @@
 <?php include "../config/autoload.php"; ?>
 <?php include "pendaftaran_control.php"; ?>
-<?php include "../template/header.php"; ?>
+<?php include "../template/header_admin.php"; ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -74,7 +74,7 @@
                   </div>
                     <div class="modal-footer">
                       <a href="<?= $base_url ?>/admin/pendaftaran.php?action=hapus&id=<?= $p['id']; ?>" class="btn btn-sm btn-danger">Hapus</a>
-                      <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
                     </div>
                   </form>
                 </div>

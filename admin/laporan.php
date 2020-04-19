@@ -1,6 +1,6 @@
 <?php include "../config/autoload.php"; ?>
 <?php include "laporan_control.php"; ?>
-<?php include "../template/header.php"; ?>
+<?php include "../template/header_admin.php"; ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -43,7 +43,7 @@
                 <td class="text-center"><span class="badge badge-danger">TIDAK LOLOS</span></td>
               <?php } ?>
               <td class="text-center">
-                <a href="" class="btn btn-warning btn-sm">Cetak</a>
+                <a href="<?= $base_url?>/cetak/detail_cetak.php?id=<?= $p['id'] ?>" class="btn btn-warning btn-sm">Cetak</a>
               </td>
             </tr>
             <?php $no++; ?>

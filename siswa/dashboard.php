@@ -1,5 +1,4 @@
 <?php include "../config/autoload.php"; ?>
-
 <?php include "dashboard_control.php"; ?>
 <?php include "../template/header.php" ?>
 
@@ -8,6 +7,7 @@
 
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">Menu Utama</h1>
+  <a href="<?= $base_url ?>/cetak/detail_cetak.php?id=<?= $id_pendaftar; ?>" class="mb-3 btn btn-warning btn-sm">Cetak Data Pendaftar</a>
 
   <div class="row">
 
