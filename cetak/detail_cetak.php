@@ -65,7 +65,7 @@ if (!$result_nilai) {
 if($data_pendaftar['foto'] != ''){
   $gambar = '../upload/' . $data_pendaftar['foto'];
 }else{
-  $gambar = '../assets/img/1.png';
+  $gambar = '../assets/img/ava.png';
 }
 
 if($data_pendaftar['jenis_kelamin'] == 'L'){

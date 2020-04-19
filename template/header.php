@@ -153,7 +153,7 @@
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama']; ?></span>
                 <?php
                 if ($data_pendaftar['foto'] == "") {
-                  $foto = '../assets/img/1.png';
+                  $foto = '../assets/img/ava.png';
                 } else {
                   $foto = '../upload/' . $data_pendaftar['foto'];
                 }

@@ -98,12 +98,13 @@
       <div class="col-md-4">
         <?php
         if ($data_pendaftar['foto'] == null) {
-          $foto = '../assets/img/1.png';
+          $foto = '../assets/img/ava.png';
         } else {
           $foto = '../upload/' . $data_pendaftar['foto'];
         }
         ?>
         <img src="<?= $foto; ?>" alt="foto profil" class="img-fluid">
+        <a href="hapus_control.php?id=<?=$data_pendaftar['id']; ?>" class="btn btn-danger btn-sm my-2" onclick="return confirm('yakin hapus foto?')" >Hapus foto</a>
         <input type="file" name="foto" class="form-control mt-2">
         <small>Input foto berukuran maksimal 1 MB</small>
       </div>

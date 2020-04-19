@@ -191,7 +191,7 @@
               <div class="col-auto mt-3 text-center">
                 <?php
                 if ($data_pendaftar['foto'] == null) {
-                  $foto = '../assets/img/1.png';
+                  $foto = '../assets/img/ava.png';
                 } else {
                   $foto = '../upload/' . $data_pendaftar['foto'];
                 }
