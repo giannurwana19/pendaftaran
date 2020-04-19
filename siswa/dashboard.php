@@ -7,7 +7,6 @@
 
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">Menu Utama</h1>
-  <a href="<?= $base_url ?>/cetak/detail_cetak.php?id=<?= $id_pendaftar; ?>" class="mb-3 btn btn-warning btn-sm">Cetak Data Pendaftar</a>
 
   <div class="row">
 
@@ -201,6 +200,7 @@
               </div>
               <div class="text-right">
                 <a href="editprofil.php" class="btn btn-warning btn-sm">Edit Profile</a>
+                <a href="<?= $base_url ?>/cetak/detail_cetak.php?id=<?= $id_pendaftar; ?>" target="_blank" class="mb-3 btn btn-success float-left  btn-sm">Cetak Data Diri</a>
               </div>
               <h5 class="text-center card-title mt-3"><?= $data_pendaftar['nama']; ?></h5>
 
