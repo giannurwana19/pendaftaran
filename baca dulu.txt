@@ -1,0 +1,14 @@
+User guide petunjuk sistem pendaftaran
+
+1. pastikan xampp sudah di start apache dan mysql nya
+2. lalu buka browser, ketikkan http://localhost/phpmyadmin/ untuk membuka phpmyadmin
+3. buat database dengan nama pendaftaran (huruf kecil semua)
+4. setelah dibuat databasenya, pilih import, kemudian pilih choose file untuk import database
+5. lalu pilih file pendaftaran.sql yang berada di folder pendaftaran
+6. setelah itu klik go
+7. setelah itu buka chrome lagi, ketik http://localhost/pendaftaran/login.php untuk login ke system nya
+8. masukkan username admin@gmail.com dan password 123 untuk masuk ke dashboard admin
+9. untuk masuk ke user, masukkan username gian@gmal.com dan password 123
+
+
+======================= selamat berselancar ==========
